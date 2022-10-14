@@ -1,0 +1,48 @@
+body {
+  padding: 0;
+  margin: 0;
+  .App {
+    background: #fff;
+    height: 100vh;
+    &.dark {
+      background: #333;
+      color: #fff;
+    }
+    .dark_btn {
+      position: relative;
+      button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        background: #ddd;
+        font-size: 0;
+        border-radius: 15px;
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: red;
+          transition: 0.5s all;
+        }
+        &.on::after {
+          right: calc(100% - 30px);
+        }
+      }
+    }
+  }
+}
